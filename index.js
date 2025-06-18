@@ -14,6 +14,17 @@ function toggleTheme() {
     }
 }
 
+                    function updateLogo() {
+                        const isDark = document.body.classList.contains('dark-mode');
+                        document.getElementById('logo-img').src = isDark ? 'logo-dark.png' : 'logo1.png';
+                    }
+                    function toggleTheme() {
+                        document.body.classList.toggle('dark-mode');
+                        updateLogo();
+                    }
+                    // Initial logo update in case theme is set on load
+                    window.addEventListener('DOMContentLoaded', updateLogo);
+
 function getStarted() {
     // In a real app, this would navigate to the notes interface
     window.location.href = 'dashboard.html'; // Redirect to the dashboard page
