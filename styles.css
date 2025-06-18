@@ -28,7 +28,6 @@
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(245, 245, 220, 0.3);
-            padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -48,6 +47,21 @@
             align-items: center;
             padding: 0 2rem;
         }
+
+            #logo-img {
+                cursor: pointer;
+                height: 128px;
+                width: 192px;
+                background: none;
+                border: none;
+                vertical-align: middle;
+                object-fit: cover;
+                transition: transform 0.2s;
+            }
+
+            #logo-img:hover {
+                transform: scale(1.08);
+            }
 
         .logo {
             display: flex;
