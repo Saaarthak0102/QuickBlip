@@ -103,7 +103,7 @@
             border-radius: 50px;
             padding: 0.5rem 1rem;
             cursor: pointer;
-            font-size: 0.9rem;
+            font-family: "Poppins", sans-serif;
             transition: all 0.3s ease;
             color: #8b4513;
         }
@@ -138,8 +138,8 @@
         
         .welcome-section h1 {
             font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
+            font-family: "Quicksand", sans-serif;
+            /* margin-bottom: 1rem; */
             background: linear-gradient(45deg, #8b4513, #daa520);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -151,15 +151,17 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+
         }
         
         .welcome-section h2 {
             font-size: 1.7rem;
+            font-family: "Poppins", sans-serif;
             font-weight: 400;
-            margin-bottom: 2.5rem;
+            margin-bottom: 5rem;
             color: #7a5c2e;
             letter-spacing: 0.02em;
-            background: linear-gradient(45deg, #daa520 40%, #8b4513 100%);
+            background: #daa520;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -180,6 +182,7 @@
             color: white;
             border: none;
             padding: 1rem 2.5rem;
+            font-family: poppins, sans-serif;
             font-size: 1.2rem;
             border-radius: 50px;
             cursor: pointer;
@@ -218,6 +221,7 @@
         
         .usecase-section h3 {
             font-size: 2rem;
+            font-family: Quicksand, sans-serif;
             margin-bottom: 2rem;
             color: #8b4513;
         }
@@ -256,6 +260,7 @@
         }
         
         .usecase-card h4 {
+            font-family: poppins, sans-serif;
             font-size: 1.3rem;
             margin-bottom: 1rem;
             color: #8b4513;
@@ -267,7 +272,8 @@
         
         .usecase-card p {
             color: #6d4c1b;
-            line-height: 1.6;
+            font-family: poppins, sans-serif;
+            line-height: 1.2rem;
             font-size: 1.05rem;
             margin-top: 0.5rem;
         }
@@ -380,3 +386,17 @@
                 padding: 2rem 1rem;
             }
         }
+
+        
+.quicksand-1 {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: semi-bold;
+}
+
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
