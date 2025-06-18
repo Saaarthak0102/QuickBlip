@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes - Your Digital Notebook</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon" onclick="window.location.href='index.html'" style="cursor:pointer;">N</div>
+                <span class="logo-text">Notes</span>
+            </div>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                🌙 Dark Mode
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="welcome-section">
+            <h1>Welcome to Notes</h1>
+            <h2>Your ideas, organized and accessible anywhere</h2>
+            <button class="get-started-btn" onclick="getStarted()">Get Started</button>
+        </div>
+
+        <div class="usecase-section">
+            <h3>Perfect for Every Scenario</h3>
+            <div class="usecase-grid">
+                <div class="usecase-card">
+                    <h4>📝 Daily Journaling</h4>
+                    <p>Keep track of your thoughts, experiences, and personal growth with our intuitive note-taking interface.</p>
+                </div>
+                <div class="usecase-card">
+                    <h4>💼 Work & Projects</h4>
+                    <p>Organize meeting notes, project ideas, and to-do lists to stay productive and focused.</p>
+                </div>
+                <div class="usecase-card">
+                    <h4>🎓 Study & Research</h4>
+                    <p>Take comprehensive notes, create study guides, and organize research materials efficiently.</p>
+                </div>
+                <div class="usecase-card">
+                    <h4>💡 Creative Ideas</h4>
+                    <p>Capture inspiration, brainstorm concepts, and develop your creative projects in one place.</p>
+                </div>
+                <div class="usecase-card">
+                    <h4>📅 Event Planning</h4>
+                    <p>Plan events, manage guest lists, and jot down ideas to ensure everything goes smoothly.</p>
+                </div>
+                <div class="usecase-card">
+                    <h4>🌐 Travel & Adventures</h4>
+                    <p>Document your travels, create itineraries, and keep memories alive with detailed notes.</p>
+                </div>
+        </div>
+    </main>
+
+    <script>
+        let isDarkMode = false;
+
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+            
+            if (isDarkMode) {
+                body.classList.add('dark-theme');
+                themeToggle.innerHTML = '☀️ Light Mode';
+            } else {
+                body.classList.remove('dark-theme');
+                themeToggle.innerHTML = '🌙 Dark Mode';
+            }
+        }
+
+        function getStarted() {
+            // In a real app, this would navigate to the notes interface
+            window.location.href = 'dashboard.html'; // Redirect to the dashboard page
+        }
+
+        // Add smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
