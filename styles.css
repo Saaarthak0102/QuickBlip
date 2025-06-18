@@ -25,7 +25,7 @@
 
         /* Header Styles */
         header {
-            background: rgba(255, 255, 255, 0.9);
+            background: linear-gradient(135deg, #ffffff 0%, #fafae6 100%);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(245, 245, 220, 0.3);
             position: sticky;
@@ -154,14 +154,25 @@
         }
 
         .welcome-section h2 {
-            font-size: 1.5rem;
-            font-weight: 300;
-            margin-bottom: 2rem;
-            color: #666;
+            font-size: 1.7rem;
+            font-weight: 400;
+            margin-bottom: 2.5rem;
+            color: #7a5c2e;
+            letter-spacing: 0.02em;
+            background: linear-gradient(45deg, #daa520 40%, #8b4513 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 8px rgba(218, 165, 32, 0.08);
         }
 
         body.dark-theme .welcome-section h2 {
+            background: linear-gradient(45deg, #c5b8d9 40%, #9b88c2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             color: #b3a5c7;
+            text-shadow: 0 2px 8px rgba(155, 136, 194, 0.08);
         }
 
         .get-started-btn {
@@ -255,8 +266,10 @@
         }
 
         .usecase-card p {
-            color: #666;
+            color: #6d4c1b;
             line-height: 1.6;
+            font-size: 1.05rem;
+            margin-top: 0.5rem;
         }
 
         body.dark-theme .usecase-card p {
