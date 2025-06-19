@@ -31,6 +31,22 @@ function toggleTheme() {
 // Initial logo update in case theme is set on load
 window.addEventListener('DOMContentLoaded', updateLogo);
 
+function toggleExpand(element) {
+            // Check if this container is already expanded
+            const isExpanded = element.classList.contains('expanded');
+            
+            // First, collapse all expanded containers
+            const allContainers = document.querySelectorAll('.notes-container');
+            allContainers.forEach(container => {
+                container.classList.remove('expanded');
+            });
+            
+            // If the clicked container wasn't expanded, expand it
+            if (!isExpanded) {
+                element.classList.add('expanded');
+            }
+        }
+
 // Add smooth scrolling for better UX
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
