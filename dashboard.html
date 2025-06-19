@@ -6,9 +6,9 @@
     <title>Dashboard - QuickBlip</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="logo1.png">
-    <link rel="stylesheet" href="stylesd.css">
+    <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
     <!-- Header -->
@@ -16,14 +16,15 @@
         <div class="header-content">
             <div class="logo">
             <img id="logo-img" src="logo1.png" alt="Logo" onclick="window.location.href='index.html'">
-            </div>
+                </div>
+            </main>
             <button class="theme-toggle" onclick="toggleTheme()">
                 🌙 Dark Mode
             </button>
         </div>
     </header>
 
-    <!-- Dashboard Controls -->
+       <!-- Dashboard Controls -->
     <div class="dashboard-controls">
         <button class="add-note-btn" onclick="addNewNote()">
             <span>+</span>
@@ -41,8 +42,23 @@
 
     <!-- Main Content -->
     <main>
-        </main>
+        <div class="notes-container" onclick="toggleExpand(this)">
+            <div class="notes-content">
+                <div class="notes-header">
+                    Welcome!
+                </div>
+                <div class="notes-body">
+                    <!-- Your notes content goes here -->
+                    Stay organized and boost your productivity by keeping track of your notes and tasks here. 
+                    QuickBlip helps you manage everything in one place!
+                </div>
+            </div>
+        </div>
 
+
+    </main>
+
+    <footer>
         <div class="footer-bottom">
             <div class="footer-bottom-content">
                 <p>&copy; 2025 QuickBlip. All rights reserved.</p>

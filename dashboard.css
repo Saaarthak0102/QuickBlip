@@ -105,7 +105,7 @@
 
             .theme-toggle:hover {
                 background: #8b4513;
-                color: white;
+                color: #f5f5dc;
                 transform: scale(1.05);
             }
 
@@ -118,6 +118,8 @@
                 background: #7c6ba0;
                 color: #0f0a1a;
             }
+
+
 
             /* Dashboard Controls */
             .dashboard-controls {
@@ -132,19 +134,20 @@
 
             .add-note-btn {
                 background: linear-gradient(135deg, #8b4513 0%, #daa520 100%);
-                color: white;
+                color: #f5f5dc;
                 border: none;
                 padding: 0.75rem 1.5rem;
                 border-radius: 8px;
                 font-size: 1rem;
                 font-family: "Poppins", sans-serif;
-                font-weight: 600;
+                font-weight: 400;
                 cursor: pointer;
                 display: flex;
                 align-items: center;
                 gap: 0.5rem;
                 transition: transform 0.2s ease, box-shadow 0.2s ease;
                 box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+                margin-left: 0.25rem;
             }
 
             .add-note-btn:hover {
@@ -157,6 +160,7 @@
             }
 
             body.dark-theme .add-note-btn {
+                color:  #ebdffa;
                 background: linear-gradient(135deg, #3d2a5c 0%, #5a4278 100%);
                 box-shadow: 0 4px 15px rgba(61, 42, 92, 0.3);
             }
@@ -222,6 +226,104 @@
                 color: #b3a5c7;
             }
 
+        
+  main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            justify-items: center;
+        }
+
+        .notes-container {
+                width: 300px;
+                height: 400px;
+                background: linear-gradient(135deg, #8b4513 0%, #fabb1c 100%);
+                border-radius: 25px;
+                box-shadow: 0 8px 25px #b8860b40;            
+                padding: 20px;
+                box-sizing: border-box;
+                position: relative;
+                overflow: hidden;
+                transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                cursor: pointer;
+            }
+
+            .notes-container.expanded {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(1.8);
+                box-shadow: 0 25px 80px #8b451361;
+                z-index: 1000;
+            }
+
+            .notes-container::before {
+                content: '';
+                position: absolute;
+                top: 100px;
+                /* increased from 80px to 100px to give header more space */
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
+                background: #fff8e1;
+                border-radius: 0 0 25px 25px;
+            }
+
+            .notes-content {
+                position: relative;
+                z-index: 2;
+                height: 100%;
+                color:  #8b4513;
+            }
+
+            .notes-header {
+                height: 80px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color:  #f5f5dc;
+                font-family: "Patrick Hand", cursive;
+                font-weight: semi-bold;
+                font-size: 40px;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            }
+
+            .notes-body {
+                background: transparent;
+                height: calc(100% - 100px);
+                /* updated to match new header height */
+                padding: 20px 0;
+                font-family: "Patrick Hand", cursive;
+                font-size: 20px;
+            }
+
+            /* Dark Theme for Notes */
+            body.dark-theme .notes-container {
+                background: linear-gradient(to right, #24163a 0%, #3a2352 100%);            box-shadow: 0 8px 25px rgba(61, 42, 92, 0.25);
+            }
+            body.dark-theme .notes-container.expanded {
+                box-shadow: 0 25px 80px rgba(61, 42, 92, 0.5);
+            }
+
+            body.dark-theme .notes-container::before {
+                background-color: #cda9fc;           }
+
+            body.dark-theme .notes-content {
+                color: #3a2352; 
+            }
+
+            body.dark-theme .notes-header {
+                color: #e9d8ff; 
+                text-shadow: 0 1px 4px rgba(61, 42, 92, 0.3);
+            }
+
+            body.dark-theme .notes-body {
+                background: transparent;
+            }
             /* Footer Styles */
             .footer-bottom {
                 border-top: 1px solid rgba(245, 245, 220, 0.3);
@@ -281,11 +383,12 @@
             }
 
             /* Font Utilities */
-            .poppins-light {
-                font-family: "Poppins", sans-serif;
-                font-weight: 300;
-                font-style: normal;
+            .patrick-hand-regular {
+             font-family: "Patrick Hand", cursive;
+            font-weight: 400;
+            font-style: normal
             }
+
 
             /* Responsive Design */
             @media (max-width: 768px) {
