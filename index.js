@@ -34,8 +34,7 @@ function toggleTheme() {
 window.addEventListener('DOMContentLoaded', updateLogo);
 
 function getStarted() {
-    // In a real app, this would navigate to the notes interface
-    window.location.href = 'dashboard.html'; // Redirect to the dashboard page
+    window.location.href = 'login.html'; // Redirect to the dashboard page
 }
 
 // Add smooth scrolling for better UX
