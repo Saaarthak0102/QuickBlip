@@ -105,7 +105,7 @@
 
             .theme-toggle:hover {
                 background: #8b4513;
-                color: white;
+                color: #f5f5dc;
                 transform: scale(1.05);
             }
 
@@ -134,19 +134,20 @@
 
             .add-note-btn {
                 background: linear-gradient(135deg, #8b4513 0%, #daa520 100%);
-                color: white;
+                color: #f5f5dc;
                 border: none;
                 padding: 0.75rem 1.5rem;
                 border-radius: 8px;
                 font-size: 1rem;
                 font-family: "Poppins", sans-serif;
-                font-weight: 600;
+                font-weight: 400;
                 cursor: pointer;
                 display: flex;
                 align-items: center;
                 gap: 0.5rem;
                 transition: transform 0.2s ease, box-shadow 0.2s ease;
                 box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+                margin-left: 0.25rem;
             }
 
             .add-note-btn:hover {
@@ -159,6 +160,7 @@
             }
 
             body.dark-theme .add-note-btn {
+                color:  #ebdffa;
                 background: linear-gradient(135deg, #3d2a5c 0%, #5a4278 100%);
                 box-shadow: 0 4px 15px rgba(61, 42, 92, 0.3);
             }
@@ -238,9 +240,9 @@
         .notes-container {
                 width: 300px;
                 height: 400px;
-                background-color: #f1cd73;
+                background: linear-gradient(135deg, #8b4513 0%, #fabb1c 100%);
                 border-radius: 25px;
-                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+                box-shadow: 0 8px 25px #b8860b40;            
                 padding: 20px;
                 box-sizing: border-box;
                 position: relative;
@@ -254,7 +256,7 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%) scale(1.8);
-                box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+                box-shadow: 0 25px 80px #8b451361;
                 z-index: 1000;
             }
 
@@ -267,7 +269,7 @@
                 right: 0;
                 bottom: 0;
                 z-index: 1;
-                background: #fbeab8;
+                background: #fff8e1;
                 border-radius: 0 0 25px 25px;
             }
 
@@ -275,19 +277,18 @@
                 position: relative;
                 z-index: 2;
                 height: 100%;
-                color: #333;
+                color:  #8b4513;
             }
 
             .notes-header {
-                height: 100px;
-                /* increased from 60px to 100px */
+                height: 80px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                color: #2d1a00; /* darker for title */
-                font-weight: bold;
-                font-size: 22px;
-                /* slightly larger font */
+                color:  #f5f5dc;
+                font-family: "Patrick Hand", cursive;
+                font-weight: semi-bold;
+                font-size: 40px;
                 text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
             }
 
@@ -296,28 +297,27 @@
                 height: calc(100% - 100px);
                 /* updated to match new header height */
                 padding: 20px 0;
+                font-family: "Patrick Hand", cursive;
+                font-size: 20px;
             }
 
             /* Dark Theme for Notes */
             body.dark-theme .notes-container {
-                background: linear-gradient(to bottom, #2a213a 0%, #3d2a5c 100%);
-                box-shadow: 0 8px 25px rgba(61, 42, 92, 0.25);
+                background: linear-gradient(to right, #24163a 0%, #3a2352 100%);            box-shadow: 0 8px 25px rgba(61, 42, 92, 0.25);
             }
-
             body.dark-theme .notes-container.expanded {
                 box-shadow: 0 25px 80px rgba(61, 42, 92, 0.5);
             }
 
             body.dark-theme .notes-container::before {
-                background-color: #1a1320;
-            }
+                background-color: #cda9fc;           }
 
             body.dark-theme .notes-content {
-                color: #e0e0e0;
+                color: #3a2352; 
             }
 
             body.dark-theme .notes-header {
-                color: #f3eaff; /* lighter for dark bg */
+                color: #e9d8ff; 
                 text-shadow: 0 1px 4px rgba(61, 42, 92, 0.3);
             }
 
@@ -383,11 +383,12 @@
             }
 
             /* Font Utilities */
-            .poppins-light {
-                font-family: "Poppins", sans-serif;
-                font-weight: 300;
-                font-style: normal;
+            .patrick-hand-regular {
+             font-family: "Patrick Hand", cursive;
+            font-weight: 400;
+            font-style: normal
             }
+
 
             /* Responsive Design */
             @media (max-width: 768px) {

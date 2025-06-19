@@ -1,4 +1,5 @@
 const THEME_KEY = 'theme';
+let noteCounter = 1;
 
 function applySavedTheme() {
     const savedTheme = localStorage.getItem(THEME_KEY);
@@ -57,3 +58,34 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+function addNewNote() {
+    noteCounter++;
+
+    // Create the note container
+    const noteContainer = document.createElement('div');
+    noteContainer.className = 'notes-container';
+    noteContainer.onclick = function() { toggleExpand(this); };
+
+    // Add the note content structure
+    noteContainer.innerHTML = `
+        <div class="notes-content">
+            <div class="notes-header">
+                New Note ${noteCounter}
+            </div>
+            <div class="notes-body">
+                Click here to add your content...
+            </div>
+        </div>
+    `;
+
+    // Append to the main element
+    const main = document.querySelector('main');
+    if (main) {
+        main.appendChild(noteContainer);
+
+        // Optional: Scroll the new note into view
+        noteContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } else {
+        console.error('Main element not found!');
+    }
+}
