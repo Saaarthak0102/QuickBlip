@@ -217,7 +217,7 @@ body.dark-theme .form-group input:focus {
     margin-top: 2rem;
 }
 
-.btn-signin {
+.btn-signup {
     flex: 1;
     background: linear-gradient(135deg, #8b4513 0%, #daa520 100%);
     color: #f5f5dc;
@@ -232,22 +232,22 @@ body.dark-theme .form-group input:focus {
     box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
 }
 
-.btn-signin:hover {
+.btn-signup:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
 }
 
-.btn-signin:active {
+.btn-signup:active {
     transform: translateY(0);
 }
 
-body.dark-theme .btn-signin {
+body.dark-theme .btn-signup {
     background: linear-gradient(135deg, #3d2a5c 0%, #5a4278 100%);
     color: #ebdffa;
     box-shadow: 0 4px 15px rgba(61, 42, 92, 0.3);
 }
 
-body.dark-theme .btn-signin:hover {
+body.dark-theme .btn-signup:hover {
     box-shadow: 0 6px 20px rgba(61, 42, 92, 0.4);
 }
 
