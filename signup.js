@@ -17,8 +17,8 @@ function updateLogo() {
     document.getElementById('logo-img').src = isDark ? 'logo-dark.png' : 'logo1.png';
 }
 
-function getStarted() {
-    window.location.href = 'dashboard.html'; // Redirect to the dashboard page
+function guestLogin() {
+    window.location.href = 'dashboard.html'; 
 }
 
 
