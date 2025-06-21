@@ -61,31 +61,47 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 function addNewNote() {
     noteCounter++;
 
-    // Create the note container
+    // Create a unique note ID
+    const noteId = `note-${Date.now()}-${noteCounter}`;
+
+    // Define the note structure
+    const noteData = {
+        id: noteId,
+        title: `New Note ${noteCounter}`,
+        content: '',
+        created: new Date().toISOString(),
+        lastModified: new Date().toISOString(),
+        tags: [],
+        archived: false
+    };
+
+    // Save the note to localStorage
+    let notes = JSON.parse(localStorage.getItem('notes') || '[]');
+    notes.push(noteData);
+    localStorage.setItem('notes', JSON.stringify(notes));
+
+    // Optionally, create the note visually in dashboard.html
     const noteContainer = document.createElement('div');
     noteContainer.className = 'notes-container';
     noteContainer.onclick = function() { toggleExpand(this); };
-
-    // Add the note content structure
     noteContainer.innerHTML = `
         <div class="notes-content">
             <div class="notes-header">
-                New Note ${noteCounter}
+                ${noteData.title}
             </div>
             <div class="notes-body">
                 Click here to add your content...
             </div>
         </div>
     `;
-
-    // Append to the main element
     const main = document.querySelector('main');
     if (main) {
         main.appendChild(noteContainer);
-
-        // Optional: Scroll the new note into view
         noteContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     } else {
         console.error('Main element not found!');
     }
+
+    // Redirect to editor.html with the note ID as a query parameter
+    window.location.href = `editor.html?noteId=${encodeURIComponent(noteId)}`;
 }

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Editor - QuickBlip</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="editor.css">
+    <link rel="icon" type="image/png" href="logo1.png">
+</head>
+<body>
+    <!-- Header -->
+<header>
+    <div class="header-content">
+        <div class="logo">
+            <img id="logo-img" src="logo1.png" alt="Logo" onclick="window.location.href='index.html'">
+        </div>    
+        <div class="welcome-message">
+            <h1>Editor</h1>
+        </div>
+        <button class="theme-toggle" onclick="toggleTheme()">
+            🌙 Dark Mode
+        </button>
+    </div>
+</header>
+
+<div class ="button-group">
+<button class="save-btn" onclick="saveNote()">
+    💾 Save
+</button>
+<a href="#" class="back-btn" onclick="goBack()">
+    ← Back to Dashboard
+</a>
+</div>
+
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+        <div class="toolbar-group">
+            <button class="toolbar-btn" onclick="formatText('bold')" title="Bold">
+                <strong>B</strong>
+            </button>
+            <button class="toolbar-btn" onclick="formatText('italic')" title="Italic">
+                <em>I</em>
+            </button>
+            <button class="toolbar-btn" onclick="formatText('underline')" title="Underline">
+                <u>U</u>
+            </button>
+        </div>
+        
+        <div class="toolbar-group">
+            <select class="toolbar-btn" onchange="changeFontSize(this.value)">
+                <option value="1rem">Small</option>
+                <option value="1.3rem" selected>Normal</option>
+                <option value="1.6rem">Large</option>
+                <option value="2rem">Extra Large</option>
+            </select>
+        </div>
+        
+        <div class="toolbar-group">
+            <button class="toolbar-btn" onclick="insertList('ul')" title="Bullet List">
+                • List
+            </button>
+            <button class="toolbar-btn" onclick="insertList('ol')" title="Numbered List">
+                1. List
+            </button>
+        </div>
+        
+        <div class="toolbar-group">
+            <button class="toolbar-btn" onclick="insertLink()" title="Insert Link">
+                🔗 Link
+            </button>
+            <button class="toolbar-btn" onclick="insertDate()" title="Insert Date">
+                📅 Date
+            </button>
+        </div>
+        
+        <div class="toolbar-group">
+            <button class="toolbar-btn" onclick="clearFormatting()" title="Clear Formatting">
+                🧹 Clear
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Editor -->
+    <div class="editor-container">
+        <div class="notes-container">
+            <div class="notes-content">
+                <div class="notes-header">
+                    <input type="text" class="notes-title" placeholder="Enter your note title..." id="noteTitle" oninput="updateWordCount()">
+                    <div class="word-count" id="wordCount">0 words</div>
+                </div>
+                <div class="notes-body">
+                    <div class="editor-textarea" id="noteContent" contenteditable="true" placeholder="Start writing your note here..." oninput="updateWordCount()" onkeydown="handleKeydown(event)" style="min-height: 200px; outline: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+        <div class="status-left">
+            <span>Last saved: <span id="lastSaved">Never</span></span>
+            <span>Characters: <span id="charCount">0</span></span>
+        </div>
+        <div class="status-right">
+            <span id="currentTime"></span>
+        </div>
+    </div>
+
+    <script src="editor.js"></script>
+</body>
+</html>
