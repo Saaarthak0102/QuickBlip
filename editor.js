@@ -1,5 +1,10 @@
         // Theme management
         const THEME_KEY = 'quickblip-theme';
+
+        function updateLogo() {
+            const isDark = document.body.classList.contains('dark-theme');
+            document.getElementById('logo-img').src = isDark ? 'logo-dark.png' : 'logo1.png';
+        }
         
         function applySavedTheme() {
             const savedTheme = localStorage.getItem(THEME_KEY);
@@ -14,6 +19,7 @@
             const isDark = body.classList.toggle('dark-theme');
             localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light');
             updateThemeToggle(isDark);
+            updateLogo();
         }
 
         function updateThemeToggle(isDark) {
