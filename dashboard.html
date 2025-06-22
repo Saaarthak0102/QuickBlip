@@ -28,6 +28,23 @@
         </div>
     </header>
 
+    <!-- profile -->
+<div class="profile">
+    <div class="profile-dropdown">
+        <button class="profile-btn" onclick="toggleProfileMenu()" id="profileMenuBtn">
+            <span id="profile-email">email@example.com</span>
+        </button>
+        
+        <div class="profile-menu" id="profileMenu">
+            <div class="profile-menu-header">
+                <span id="profile-menu-email">email@example.com</span>
+            </div>
+            <button class="profile-menu-item sign-out" onclick="signOut()">
+                Sign Out
+            </button>
+        </div>
+    </div>
+</div>
        <!-- Dashboard Controls -->
     <div class="dashboard-controls">
         <button class="add-note-btn" onclick="addNewNote()">
@@ -53,8 +70,10 @@
                 </div>
                 <div class="notes-body">
                     <!-- Your notes content goes here -->
-                    Stay organized and boost your productivity by keeping track of your notes and tasks here. 
-                    QuickBlip helps you manage everything in one place!
+                    Life moves fast - stay ahead with QuickBlip. Capture ideas, tasks, and reminders instantly so 
+                    nothing slips through the cracks.
+                    <br><br>
+                    Quick thoughts. Quick capture. Quick results.
                 </div>
             </div>
         </div>
