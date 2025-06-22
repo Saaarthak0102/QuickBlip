@@ -485,7 +485,7 @@
             .profile-menu {
                 display: none;
                 position: absolute;
-                right: 0;
+                right: 175px;
                 top: calc(100% + 10px);
                 min-width: 180px;
                 background: white;
