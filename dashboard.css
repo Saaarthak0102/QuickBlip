@@ -308,7 +308,7 @@
                 justify-content: center;
                 color:  #f5f5dc;
                 font-family: "Patrick Hand", cursive;
-                font-weight: semi-bold;
+                font-weight: 600;
                 font-size: 40px;
                 text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
             }
@@ -407,10 +407,278 @@
             .patrick-hand-regular {
              font-family: "Patrick Hand", cursive;
             font-weight: 400;
-            font-style: normal
+            font-style: normal;
             }
 
+            .profile-dropdown {
+                position: relative;
+            }
 
+            /* Profile Button - Styled to match your theme */
+            .profile-btn {
+                background: none;
+                border: 2px solid #8b4513;
+                color: #8b4513;
+                font-family: "Poppins", sans-serif;
+                font-size: 1rem;
+                cursor: pointer;
+                padding: 0.5rem 1rem;
+                border-radius: 8px;
+                transition: all 0.2s ease;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-weight: 500;
+                position: relative;
+                right: 0;
+                margin-left: auto;
+                margin-right: 11rem;     
+                margin-top: 1.25rem;  
+             }
+
+            .profile-btn:hover {
+                background: #8b4513;
+                color: #f5f5dc;
+                transform: translateY(-1px);
+                box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+            }
+
+            .profile-btn:focus {
+                outline: none;
+                background: #8b4513;
+                color: #f5f5dc;
+            }
+
+            body.dark-theme .profile-btn {
+                border-color: #7c6ba0;
+                color: #c5b8d9;
+            }
+
+            body.dark-theme .profile-btn:hover,
+            body.dark-theme .profile-btn:focus {
+                background: #7c6ba0;
+                color: #fff;
+                box-shadow: 0 4px 15px rgba(124, 107, 160, 0.3);
+            }
+
+            /* Add dropdown arrow */
+            .profile-btn::after {
+                content: '▼';
+                font-size: 10px;
+                margin-left: 8px;
+                transition: transform 0.2s ease;
+            }
+
+            .profile-btn.active::after {
+                transform: rotate(180deg);
+            }
+
+            /* Profile Email Text */
+            #profile-email {
+                max-width: 200px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            /* Profile Menu Dropdown - Compact for 2 items */
+            .profile-menu {
+                display: none;
+                position: absolute;
+                right: 0;
+                top: calc(100% + 10px);
+                min-width: 180px;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
+                z-index: 1000;
+                padding: 0.3rem 0;
+                border: 1px solid rgba(245, 245, 220, 0.3);
+                animation: fadeIn 0.2s ease;
+            }
+
+            .profile-menu.show {
+                display: block;
+            }
+
+            body.dark-theme .profile-menu {
+                background: #1a1320;
+                border: 1px solid rgba(88, 68, 120, 0.3);
+                box-shadow: 0 8px 25px rgba(61, 42, 92, 0.2);
+            }
+
+            /* Profile Menu Header - Compact */
+            .profile-menu-header {
+                padding: 0.6rem 1rem;
+                border-bottom: 1px solid rgba(245, 245, 220, 0.3);
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: #8b4513;
+                font-family: "Poppins", sans-serif;
+                word-break: break-all;
+                background: rgba(245, 245, 220, 0.1);
+            }
+
+            body.dark-theme .profile-menu-header {
+                border-bottom: 1px solid rgba(88, 68, 120, 0.3);
+                color: #c5b8d9;
+                background: rgba(88, 68, 120, 0.1);
+            }
+
+            /* Profile Menu Items - Simplified for 2 items */
+            .profile-menu-item {
+                width: 100%;
+                padding: 0.7rem 1rem;
+                background: none;
+                border: none;
+                text-align: left;
+                font-size: 0.95rem;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                color: #666;
+                font-family: "Poppins", sans-serif;
+                font-weight: 500;
+            }
+
+            .profile-menu-item:hover {
+                background: linear-gradient(135deg, #8b4513 0%, #daa520 100%);
+                color: #f5f5dc;
+                transform: translateX(3px);
+            }
+
+            .profile-menu-item:focus {
+                outline: none;
+                background: linear-gradient(135deg, #8b4513 0%, #daa520 100%);
+                color: #f5f5dc;
+            }
+
+            body.dark-theme .profile-menu-item {
+                color: #b3a5c7;
+            }
+
+            body.dark-theme .profile-menu-item:hover,
+            body.dark-theme .profile-menu-item:focus {
+                background: linear-gradient(135deg, #3d2a5c 0%, #5a4278 100%);
+                color: #ebdffa;
+            }
+
+            /* Sign Out Button - Special styling */
+            .profile-menu-item.sign-out {
+                color: #dc3545;
+                border-top: 1px solid rgba(245, 245, 220, 0.3);
+                font-weight: 600;
+                margin-top: 0.2rem;
+            }
+
+            .profile-menu-item.sign-out:hover {
+                background: #dc3545;
+                color: white;
+                transform: translateX(3px);
+            }
+
+            body.dark-theme .profile-menu-item.sign-out {
+                color: #ff6b6b;
+                border-top: 1px solid rgba(88, 68, 120, 0.3);
+            }
+
+            body.dark-theme .profile-menu-item.sign-out:hover {
+                background: #dc3545;
+                color: white;
+            }
+
+            /* Responsive adjustments for compact menu */
+            @media (max-width: 768px) {
+                .profile {
+                    position: static;
+                    margin: 1rem 0 0 0;
+                    justify-content: flex-end;
+                    width: 100%;
+                }
+                .profile-menu {
+                    min-width: 160px;
+                    right: 0;
+                }
+                .profile-btn {
+                    padding: 0.4rem 0.8rem;
+                    font-size: 0.9rem;
+                }
+                #profile-email {
+                    max-width: 120px;
+                }
+            }
+
+            /* Add icons for menu items (optional) */
+            .profile-menu-item::before {
+                font-size: 16px;
+                width: 16px;
+                text-align: center;
+            }
+
+            .profile-menu-item.sign-out::before {
+                content: '🚪';
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .profile-btn {
+                    padding: 6px 12px;
+                    font-size: 13px;
+                }
+                #profile-email {
+                    max-width: 150px;
+                }
+                .profile-menu {
+                    min-width: 200px;
+                    right: -10px;
+                }
+            }
+
+            /* Animation for smooth dropdown */
+            @keyframes dropdownSlide {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .profile-menu.animate {
+                animation: dropdownSlide 0.2s ease forwards;
+            }
+
+            /* Dark mode support (optional) */
+            @media (prefers-color-scheme: dark) {
+                .profile-btn {
+                    background: #1f2937;
+                    border-color: #374151;
+                    color: #f9fafb;
+                }
+                .profile-btn:hover {
+                    background: #111827;
+                    border-color: #6366f1;
+                }
+                .profile-menu {
+                    background: #1f2937;
+                    border-color: #374151;
+                }
+                .profile-menu-header {
+                    background: #111827;
+                    border-color: #374151;
+                    color: #f9fafb;
+                }
+                .profile-menu-item {
+                    color: #f9fafb;
+                }
+                .profile-menu-item:hover {
+                    background: #374151;
+                }
+            }
             /* Responsive Design */
             @media (max-width: 768px) {
                 .header-content {
@@ -467,5 +735,5 @@
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
   font-weight: 600;
-  font-style: semi-bold;
+  font-style: normal;
 }

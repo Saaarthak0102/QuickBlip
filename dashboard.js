@@ -105,3 +105,63 @@ function addNewNote() {
     // Redirect to editor.html with the note ID as a query parameter
     window.location.href = `editor.html?noteId=${encodeURIComponent(noteId)}`;
 }
+
+function toggleProfileMenu() {
+    const profileMenu = document.getElementById('profileMenu');
+    const profileBtn = document.getElementById('profileMenuBtn');
+    
+    if (profileMenu.classList.contains('show')) {
+        // Hide menu
+        profileMenu.classList.remove('show');
+        profileBtn.classList.remove('active');
+    } else {
+        // Show menu
+        profileMenu.classList.add('show');
+        profileBtn.classList.add('active');
+    }
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(event) {
+    const profile = document.querySelector('.profile');
+    const profileMenu = document.getElementById('profileMenu');
+    const profileBtn = document.getElementById('profileMenuBtn');
+    
+    if (!profile.contains(event.target)) {
+        profileMenu.classList.remove('show');
+        profileBtn.classList.remove('active');
+    }
+});
+
+// Close dropdown on escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        const profileMenu = document.getElementById('profileMenu');
+        const profileBtn = document.getElementById('profileMenuBtn');
+        profileMenu.classList.remove('show');
+        profileBtn.classList.remove('active');
+    }
+});
+
+
+function signOut() {
+    // Add your sign out logic
+    if (confirm('Are you sure you want to sign out?')) {
+        console.log('User signed out');
+        // Clear any stored tokens/data
+        localStorage.removeItem('authToken');
+        sessionStorage.clear();
+        // Redirect to sign in page if possible
+        if (typeof window !== 'undefined' && window.location) {
+            window.location.href = 'login.html';
+        } else {
+            console.error('Unable to redirect: window.location is not available.');
+        }
+    }
+}
+
+// Function to update profile email dynamically
+function updateProfileEmail(email) {
+    document.getElementById('profile-email').textContent = email;
+    document.getElementById('profile-menu-email').textContent = email;
+}
