@@ -46,6 +46,9 @@ loginForm.addEventListener('submit', function(event) {
             const user = userCredential.user;
             console.log('User signed in successfully:', user);
             alert('Signed in successfully!');
+            sessionStorage.setItem("userUID", user.uid);
+            sessionStorage.setItem("userEmail", user.email);
+
             
             // Optional: Redirect to dashboard or reset form
             window.location.href = 'dashboard.html';
