@@ -263,29 +263,29 @@
                 height: 400px;
                 background: linear-gradient(135deg, #8b4513 0%, #fabb1c 100%);
                 border-radius: 25px;
-                box-shadow: 0 8px 25px #b8860b40;            
+                box-shadow: 0 8px 25px rgba(184, 134, 11, 0.25);
                 padding: 20px;
                 box-sizing: border-box;
                 position: relative;
                 overflow: hidden;
-                transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
                 cursor: pointer;
+                border: 2px solid transparent;
+                backdrop-filter: blur(10px);
             }
+            
+            .notes-container:hover {
+                transform: translateY(-8px) scale(1.02);
+                box-shadow: 0 15px 35px rgba(184, 134, 11, 0.4);
+                border-color: rgba(255, 255, 255, 0.2);
+            }
+            
 
-            .notes-container.expanded {
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%) scale(1.8);
-                box-shadow: 0 25px 80px #8b451361;
-                z-index: 1000;
-            }
 
             .notes-container::before {
                 content: '';
                 position: absolute;
                 top: 100px;
-                /* increased from 80px to 100px to give header more space */
                 left: 0;
                 right: 0;
                 bottom: 0;
@@ -293,6 +293,7 @@
                 background: #fff8e1;
                 border-radius: 0 0 25px 25px;
             }
+            
 
             .notes-content {
                 position: relative;
@@ -306,29 +307,58 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                color:  #f5f5dc;
+                color: #f5f5dc;
                 font-family: "Patrick Hand", cursive;
                 font-weight: 600;
-                font-size: 40px;
-                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+                font-size: 28px;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+                text-align: center;
+                padding: 0 10px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                transition: all 0.3s ease;
+            }
+            
+            .notes-container:hover .notes-header {
+                font-size: 30px;
+                text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
             }
 
             .notes-body {
                 background: transparent;
                 height: calc(100% - 100px);
-                /* updated to match new header height */
                 padding: 20px 0;
                 font-family: "Patrick Hand", cursive;
-                font-size: 20px;
+                font-size: 18px;
+                line-height: 1.6;
+                position: relative;
+                padding-bottom: 30px;
+                transition: all 0.3s ease;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 8;
+                -webkit-box-orient: vertical;
+            }
+            
+            .notes-container:hover .notes-body {
+                font-size: 19px;
+                line-height: 1.7;
             }
 
             /* Dark Theme for Notes */
             body.dark-theme .notes-container {
-                background: linear-gradient(to right, #24163a 0%, #3a2352 100%);            box-shadow: 0 8px 25px rgba(61, 42, 92, 0.25);
+                background: linear-gradient(to right, #24163a 0%, #3a2352 100%);
+                box-shadow: 0 8px 25px rgba(61, 42, 92, 0.25);
             }
-            body.dark-theme .notes-container.expanded {
-                box-shadow: 0 25px 80px rgba(61, 42, 92, 0.5);
+            
+            body.dark-theme .notes-container:hover {
+                transform: translateY(-8px) scale(1.02);
+                box-shadow: 0 15px 35px rgba(61, 42, 92, 0.4);
+                border-color: rgba(233, 216, 255, 0.3);
             }
+            
+            
 
             body.dark-theme .notes-container::before {
                 background-color: #dfc6ff;           }
@@ -736,4 +766,355 @@
   font-optical-sizing: auto;
   font-weight: 600;
   font-style: normal;
+}
+
+/* Note Zoom and Action Buttons */
+.notes-container {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.notes-container.expanded {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) scale(1.3) !important;
+    z-index: 1500 !important;
+    width: 400px !important;
+    height: 500px !important;
+    box-shadow: 0 25px 80px rgba(139, 69, 19, 0.5) !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.note-zoom-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1400;
+}
+
+.note-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    z-index: 1600;
+    transition: transform 0.2s, background 0.2s;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.note-close-btn:hover {
+    transform: scale(1.1);
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.note-close-btn:active {
+    transform: scale(0.95);
+}
+
+.note-actions {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 1600;
+}
+
+.note-action-btn {
+    background: linear-gradient(135deg, #8b4513 0%, #daa520 100%);
+    color: #f5f5dc;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 10px rgba(139, 69, 19, 0.3);
+    cursor: pointer;
+}
+
+.note-action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(139, 69, 19, 0.4);
+}
+
+.note-action-btn.delete-btn {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+}
+
+.note-action-btn.delete-btn:hover {
+    background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
+    box-shadow: 0 6px 15px rgba(220, 53, 69, 0.4);
+}
+
+/* Note Date Info Styling */
+.note-date-info {
+    position: absolute;
+    bottom: 8px;
+    left: 12px;
+    opacity: 0.8;
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    color: #8b4513;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.note-date-info small {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 4px 8px;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.notes-container:hover .note-date-info {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.notes-container:hover .note-date-info small {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-theme .note-date-info {
+    color: #3a2352;
+}
+
+body.dark-theme .note-date-info small {
+    background: rgba(223, 198, 255, 0.9);
+    border: 1px solid rgba(233, 216, 255, 0.3);
+}
+
+body.dark-theme .notes-container:hover .note-date-info small {
+    background: rgba(223, 198, 255, 0.95);
+    box-shadow: 0 4px 12px rgba(61, 42, 92, 0.2);
+}
+
+/* Dark Theme for Note Actions */
+body.dark-theme .notes-container.expanded {
+    box-shadow: 0 25px 80px rgba(61, 42, 92, 0.5) !important;
+}
+
+body.dark-theme .note-action-btn {
+    background: linear-gradient(135deg, #3d2a5c 0%, #5a4278 100%);
+    color: #ebdffa;
+    box-shadow: 0 4px 10px rgba(61, 42, 92, 0.3);
+}
+
+body.dark-theme .note-action-btn:hover {
+    box-shadow: 0 6px 15px rgba(61, 42, 92, 0.4);
+}
+
+body.dark-theme .note-action-btn.delete-btn {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+}
+
+/* Welcome Modal Styles */
+.welcome-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.welcome-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+}
+
+.welcome-modal-content {
+    position: relative;
+    z-index: 2001;
+    animation: modalSlideIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.welcome-notes-container {
+    width: 400px;
+    height: 500px;
+    background: linear-gradient(135deg, #8b4513 0%, #fabb1c 100%);
+    border-radius: 25px;
+    box-shadow: 0 25px 80px rgba(139, 69, 19, 0.4);
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    transform: scale(1.2);
+}
+
+.welcome-notes-container::before {
+    content: '';
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background: #fff8e1;
+    border-radius: 0 0 25px 25px;
+}
+
+.welcome-notes-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    color: #8b4513;
+    display: flex;
+    flex-direction: column;
+}
+
+.welcome-notes-header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f5f5dc;
+    font-family: "Patrick Hand", cursive;
+    font-weight: 600;
+    font-size: 45px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-notes-body {
+    background: transparent;
+    flex: 1;
+    padding: 20px 0;
+    font-family: "Patrick Hand", cursive;
+    font-size: 22px;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.welcome-close-btn {
+    background: linear-gradient(135deg, #8b4513 0%, #daa520 100%);
+    color: #f5f5dc;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+    align-self: center;
+    margin-bottom: 20px;
+}
+
+.welcome-close-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+    background: linear-gradient(135deg, #a0571a 0%, #f0b325 100%);
+}
+
+.welcome-close-btn:active {
+    transform: translateY(0);
+}
+
+/* Dark Theme for Welcome Modal */
+body.dark-theme .welcome-notes-container {
+    background: linear-gradient(to right, #24163a 0%, #3a2352 100%);
+    box-shadow: 0 25px 80px rgba(61, 42, 92, 0.5);
+}
+
+body.dark-theme .welcome-notes-container::before {
+    background-color: #dfc6ff;
+}
+
+body.dark-theme .welcome-notes-content {
+    color: #3a2352;
+}
+
+body.dark-theme .welcome-notes-header {
+    color: #e9d8ff;
+    text-shadow: 0 1px 4px rgba(61, 42, 92, 0.3);
+}
+
+body.dark-theme .welcome-close-btn {
+    background: linear-gradient(135deg, #3d2a5c 0%, #5a4278 100%);
+    color: #ebdffa;
+    box-shadow: 0 4px 15px rgba(61, 42, 92, 0.3);
+}
+
+body.dark-theme .welcome-close-btn:hover {
+    box-shadow: 0 6px 20px rgba(61, 42, 92, 0.4);
+    background: linear-gradient(135deg, #4a3368 0%, #6b4d85 100%);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.7) translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Responsive Design for Modal */
+@media (max-width: 768px) {
+    .welcome-notes-container {
+        width: 90vw;
+        max-width: 350px;
+        height: 450px;
+        transform: scale(1);
+    }
+    
+    .welcome-notes-header {
+        font-size: 35px;
+    }
+    
+    .welcome-notes-body {
+        font-size: 18px;
+        padding: 15px 0;
+    }
+    
+    .welcome-close-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
 }
