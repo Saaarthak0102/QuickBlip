@@ -17,9 +17,6 @@ function updateLogo() {
     document.getElementById('logo-img').src = isDark ? 'logo-dark.png' : 'logo1.png';
 }
 
-function guestLogin() {
-    window.location.href = 'dashboard.html'; 
-}
 
 
 function toggleTheme() {
