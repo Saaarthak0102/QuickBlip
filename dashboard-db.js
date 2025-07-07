@@ -70,7 +70,7 @@ async function addNewNote() {
     try {
         console.log('Creating new note...');
         const noteData = {
-            title: 'New Note',
+            title: '',
             content: '',
             created: new Date().toISOString(),
             lastModified: new Date().toISOString(),
