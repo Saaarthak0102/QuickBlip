@@ -250,43 +250,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 applySavedTheme();
 window.addEventListener('DOMContentLoaded', updateLogo);
 
-// Welcome Modal Functions
-function showWelcomeModal() {
-    const modal = document.getElementById('welcomeModal');
-    if (modal) {
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    }
-}
-
-function closeWelcomeModal() {
-    const modal = document.getElementById('welcomeModal');
-    if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restore scrolling
-        // Mark user as having seen the welcome
-        localStorage.setItem('hasSeenWelcome', 'true');
-    }
-}
-
-// Check if user should see welcome modal
-function checkWelcomeModal() {
-    // Always show welcome modal on login
-    // Delay showing modal slightly to ensure page is loaded
-    setTimeout(() => {
-        showWelcomeModal();
-    }, 500);
-}
-
 // Make functions globally accessible
 window.toggleTheme = toggleTheme;
 window.toggleProfileMenu = toggleProfileMenu;
 window.displayNotes = displayNotes;
 window.updateProfileEmail = updateProfileEmail;
 window.openNoteEditor = openNoteEditor;
-window.showWelcomeModal = showWelcomeModal;
-window.closeWelcomeModal = closeWelcomeModal;
-window.checkWelcomeModal = checkWelcomeModal;
 window.editNote = editNote;
 window.deleteNoteConfirm = deleteNoteConfirm;
 window.toggleNoteZoom = toggleNoteZoom;
