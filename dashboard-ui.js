@@ -271,13 +271,11 @@ function closeWelcomeModal() {
 
 // Check if user should see welcome modal
 function checkWelcomeModal() {
-    const hasSeenWelcome = localStorage.getItem('hasSeenWelcome');
-    if (!hasSeenWelcome) {
-        // Delay showing modal slightly to ensure page is loaded
-        setTimeout(() => {
-            showWelcomeModal();
-        }, 500);
-    }
+    // Always show welcome modal on login
+    // Delay showing modal slightly to ensure page is loaded
+    setTimeout(() => {
+        showWelcomeModal();
+    }, 500);
 }
 
 // Make functions globally accessible
