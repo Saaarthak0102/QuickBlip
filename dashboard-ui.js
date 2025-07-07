@@ -292,3 +292,4 @@ window.checkWelcomeModal = checkWelcomeModal;
 window.editNote = editNote;
 window.deleteNoteConfirm = deleteNoteConfirm;
 window.toggleNoteZoom = toggleNoteZoom;
+window.closeNoteZoom = closeNoteZoom;

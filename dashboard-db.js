@@ -144,6 +144,24 @@ async function deleteNote(noteId) {
             await deleteDoc(doc(db, 'notes', noteId));
             console.log('Note deleted successfully');
             
+            // Close any expanded notes first
+            const expandedNotes = document.querySelectorAll('.notes-container.expanded');
+            expandedNotes.forEach(noteContainer => {
+                if (window.closeNoteZoom) {
+                    // Use a slight delay to ensure the deletion alert is processed
+                    setTimeout(() => {
+                        window.closeNoteZoom(noteContainer);
+                    }, 100);
+                } else {
+                    // Fallback method
+                    noteContainer.classList.remove('expanded');
+                    document.body.style.overflow = 'auto';
+                    // Remove overlay if present
+                    const overlay = document.querySelector('.note-zoom-overlay');
+                    if (overlay) overlay.remove();
+                }
+            });
+            
             // Remove from local array
             allNotes = allNotes.filter(note => note.id !== noteId);
             

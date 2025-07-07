@@ -285,47 +285,6 @@ body.dark-theme .btn-signup:hover {
     color: #0f0a1a;
 }
 
-/* Guest Login */
-.guest-login {
-    margin-top: 2rem;
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(139, 69, 19, 0.2);
-}
-
-body.dark-theme .guest-login {
-    border-top: 1px solid rgba(124, 107, 160, 0.3);
-}
-
-.guest-login-btn {
-    background:  transparent;
-    color: #8b4513;
-    border: 1px solid rgba(139, 69, 19, 0.3);
-    padding: 0.75rem 2rem;
-    border-radius: 25px;
-    font-size: 0.9rem;
-    font-family: "Poppins", sans-serif;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.guest-login-btn:hover {
-    background: #8b4513;
-    color: #f5f5dc;
-    transform: translateY(-1px);
-}
-
-body.dark-theme .guest-login-btn {
-    background: transparent;
-    color: #c5b8d9;
-    border-color: rgba(124, 107, 160, 0.3);
-}
-
-body.dark-theme .guest-login-btn:hover {
-    background: #7c6ba0;
-    color: #0f0a1a;
-    transform: translateY(-1px);
-}
 
 /* Footer Styles */
 footer {
