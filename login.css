@@ -7,9 +7,13 @@
 
 body {
     line-height: 1.6;
+    font-family: "Poppins", sans-serif;
     transition: all 0.3s ease;
     background: linear-gradient(135deg, #ffffff 0%, #f5f5dc 100%);
     color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Dark Theme */
@@ -40,7 +44,7 @@ body.dark-theme header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem;
+    padding: 1rem 2rem;
 }
 
 .logo {
@@ -101,6 +105,7 @@ body.dark-theme .logo-text {
     font-family: "Poppins", sans-serif;
     transition: all 0.3s ease;
     color: #8b4513;
+    font-weight: 500;
 }
 
 .theme-toggle:hover {
@@ -130,7 +135,6 @@ main {
 
 /* Login Container */
 .login-container {
-    font-family: "Poppins", sans-serif;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(15px);
     border-radius: 20px;
@@ -285,7 +289,6 @@ body.dark-theme .btn-signup:hover {
     color: #0f0a1a;
 }
 
-
 /* Footer Styles */
 footer {
     margin-top: auto;
@@ -351,7 +354,27 @@ body.dark-theme .social-links a:hover {
 /* Responsive Design */
 @media (max-width: 768px) {
     .header-content {
-        padding: 0 1rem;
+        padding: 0.5rem 1rem;
+    }
+
+    #logo-img {
+        height: 80px;
+        width: 120px;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 1.2rem;
+    }
+
+    .theme-toggle {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
     }
 
     main {
@@ -359,11 +382,28 @@ body.dark-theme .social-links a:hover {
     }
 
     .login-container {
-        padding: 2rem;
+        padding: 2rem 1.5rem;
+        border-radius: 15px;
+    }
+
+    .login-header p {
+        font-size: 1.2rem;
+    }
+
+    .form-group input {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.95rem;
     }
 
     .form-actions {
         flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .btn-signin,
+    .btn-signup {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
     }
 
     .footer-bottom-content {
@@ -374,8 +414,167 @@ body.dark-theme .social-links a:hover {
     }
 }
 
+@media (max-width: 480px) {
+    .header-content {
+        padding: 0.5rem 0.8rem;
+    }
+
+    #logo-img {
+        height: 60px;
+        width: 90px;
+    }
+
+    .logo-text {
+        font-size: 1rem;
+    }
+
+    .logo-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 1rem;
+    }
+
+    .theme-toggle {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    main {
+        padding: 0.8rem;
+    }
+
+    .login-container {
+        padding: 1.5rem 1rem;
+        border-radius: 12px;
+    }
+
+    .login-header p {
+        font-size: 1.1rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .form-group input {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .form-actions {
+        margin-top: 1.5rem;
+    }
+
+    .btn-signin,
+    .btn-signup {
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .footer-bottom {
+        padding: 1rem 0;
+    }
+
+    .footer-bottom-content p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .header-content {
+        padding: 0.3rem 0.5rem;
+    }
+
+    #logo-img {
+        height: 50px;
+        width: 75px;
+    }
+
+    .logo-text {
+        font-size: 0.9rem;
+    }
+
+    .logo-icon {
+        width: 24px;
+        height: 24px;
+        font-size: 0.9rem;
+    }
+
+    .theme-toggle {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    main {
+        padding: 0.5rem;
+    }
+
+    .login-container {
+        padding: 1.2rem 0.8rem;
+        border-radius: 10px;
+    }
+
+    .login-header p {
+        font-size: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .form-group label {
+        font-size: 0.85rem;
+    }
+
+    .form-group input {
+        padding: 0.5rem 0.7rem;
+        font-size: 0.85rem;
+    }
+
+    .btn-signin,
+    .btn-signup {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .footer-bottom-content p {
+        font-size: 0.75rem;
+    }
+}
+
+/* Utility Classes */
 .poppins-light {
-  font-family: "Poppins", sans-serif;
-  font-weight: 300;
-  font-style: normal;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Touch-friendly improvements for mobile */
+@media (max-width: 768px) {
+    .theme-toggle,
+    .btn-signin,
+    .btn-signup {
+        min-height: 44px; /* iOS accessibility guideline */
+        touch-action: manipulation;
+    }
+
+    .form-group input {
+        min-height: 44px;
+    }
+
+    .social-links a {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .login-container {
+        backdrop-filter: blur(20px);
+    }
 }

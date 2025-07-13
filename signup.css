@@ -10,6 +10,10 @@ body {
     transition: all 0.3s ease;
     background: linear-gradient(135deg, #ffffff 0%, #f5f5dc 100%);
     color: #333;
+    font-family: "Poppins", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Dark Theme */
@@ -128,7 +132,7 @@ main {
     padding: 2rem;
 }
 
-/* signup Container */
+/* Signup Container */
 .signup-container {
     font-family: "Poppins", sans-serif;
     background: rgba(255, 255, 255, 0.95);
@@ -230,6 +234,10 @@ body.dark-theme .form-group input:focus {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .btn-signup:hover {
@@ -251,7 +259,8 @@ body.dark-theme .btn-signup:hover {
     box-shadow: 0 6px 20px rgba(61, 42, 92, 0.4);
 }
 
-.btn-signup {
+/* Secondary Button Style */
+.btn-secondary {
     flex: 1;
     background: transparent;
     color: #8b4513;
@@ -269,22 +278,21 @@ body.dark-theme .btn-signup:hover {
     transition: all 0.3s ease;
 }
 
-.btn-signup:hover {
+.btn-secondary:hover {
     background: #8b4513;
     color: #f5f5dc;
     transform: translateY(-2px);
 }
 
-body.dark-theme .btn-signup {
+body.dark-theme .btn-secondary {
     color: #c5b8d9;
     border-color: #7c6ba0;
 }
 
-body.dark-theme .btn-signup:hover {
+body.dark-theme .btn-secondary:hover {
     background: #7c6ba0;
     color: #0f0a1a;
 }
-
 
 /* Footer Styles */
 footer {
@@ -348,10 +356,37 @@ body.dark-theme .social-links a:hover {
     background: rgba(197, 184, 217, 0.1);
 }
 
+/* Typography Helper */
+.poppins-light {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .header-content {
         padding: 0 1rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .logo {
+        gap: 0.3rem;
+    }
+
+    #logo-img {
+        height: 80px;
+        width: 120px;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    .theme-toggle {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
     }
 
     main {
@@ -360,10 +395,32 @@ body.dark-theme .social-links a:hover {
 
     .signup-container {
         padding: 2rem;
+        border-radius: 16px;
+        margin: 1rem 0;
+    }
+
+    .signup-header p {
+        font-size: 1.1rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.2rem;
+    }
+
+    .form-group input {
+        padding: 0.8rem;
+        font-size: 16px; /* Prevents zoom on iOS */
     }
 
     .form-actions {
         flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .btn-signup,
+    .btn-secondary {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
     }
 
     .footer-bottom-content {
@@ -372,10 +429,156 @@ body.dark-theme .social-links a:hover {
         padding: 0 1rem;
         text-align: center;
     }
+
+    .social-links {
+        gap: 0.8rem;
+    }
 }
 
-.poppins-light {
-  font-family: "Poppins", sans-serif;
-  font-weight: 300;
-  font-style: normal;
+@media (max-width: 480px) {
+    .header-content {
+        padding: 0 0.5rem;
+    }
+
+    #logo-img {
+        height: 60px;
+        width: 90px;
+    }
+
+    .logo-text {
+        font-size: 1rem;
+    }
+
+    .logo-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+
+    .theme-toggle {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    main {
+        padding: 0.5rem;
+    }
+
+    .signup-container {
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+
+    .signup-header p {
+        font-size: 1rem;
+    }
+
+    .form-group input {
+        padding: 0.7rem;
+    }
+
+    .btn-signup,
+    .btn-secondary {
+        padding: 0.7rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .footer-bottom-content p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Additional Mobile Optimizations */
+@media (max-width: 320px) {
+    .header-content {
+        padding: 0 0.3rem;
+    }
+
+    .logo {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.2rem;
+    }
+
+    #logo-img {
+        height: 50px;
+        width: 75px;
+    }
+
+    .logo-text {
+        font-size: 0.9rem;
+    }
+
+    .theme-toggle {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.7rem;
+    }
+
+    .signup-container {
+        padding: 1rem;
+        margin: 0.5rem 0;
+    }
+
+    .form-group input {
+        padding: 0.6rem;
+    }
+
+    .btn-signup,
+    .btn-secondary {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .btn-signup:hover,
+    .btn-secondary:hover,
+    .theme-toggle:hover,
+    .social-links a:hover {
+        transform: none;
+    }
+
+    .btn-signup:active,
+    .btn-secondary:active,
+    .theme-toggle:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    header {
+        position: relative;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    .signup-container {
+        padding: 1.5rem;
+        max-width: 400px;
+    }
+
+    .form-actions {
+        flex-direction: row;
+        gap: 1rem;
+    }
+}
+
+/* Focus styles for accessibility */
+.form-group input:focus,
+.btn-signup:focus,
+.btn-secondary:focus,
+.theme-toggle:focus {
+    outline: 2px solid #8b4513;
+    outline-offset: 2px;
+}
+
+body.dark-theme .form-group input:focus,
+body.dark-theme .btn-signup:focus,
+body.dark-theme .btn-secondary:focus,
+body.dark-theme .theme-toggle:focus {
+    outline-color: #7c6ba0;
 }
