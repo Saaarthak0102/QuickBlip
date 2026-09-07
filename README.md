@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <img src="public/logo1.png" alt="QuickBlip Logo" width="250" />
+</div>
 
-## Getting Started
+# QuickBlip
 
-First, run the development server:
+**QuickBlip** is a lightweight, real-time note-taking application designed for speed, simplicity, and a distraction-free writing experience.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Features
+
+- **Real-Time Sync:** Note updates are synced instantly across your devices.
+- **Authentication:** Secure email and password sign-up/login.
+- **Minimalist Editor:** A clean interface that helps you focus on writing.
+- **Dark Mode:** Built-in toggle for comfortable reading and writing at night.
+- **Quick Search:** Instantly filter your notes by title or content on the dashboard.
+
+## 🛠️ Tech Stack
+
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
+- **UI & Components:** [React](https://reactjs.org/) & [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** CSS Modules
+- **Backend & Database:** [Firebase](https://firebase.google.com/) (Auth & Firestore)
+
+## 📁 Project Structure
+
+```text
+QuickBlip/
+├── public/
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── logo-dark.png
+│   ├── logo1.png
+│   ├── next.svg
+│   ├── vercel.svg
+│   └── window.svg
+├── src/
+│   ├── app/
+│   │   ├── dashboard/
+│   │   │   ├── dashboard.module.css
+│   │   │   └── page.tsx
+│   │   ├── editor/
+│   │   │   └── [id]/
+│   │   │       ├── editor.module.css
+│   │   │       └── page.tsx
+│   │   ├── login/
+│   │   │   ├── login.module.css
+│   │   │   └── page.tsx
+│   │   ├── signup/
+│   │   │   ├── page.tsx
+│   │   │   └── signup.module.css
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   ├── page.module.css
+│   │   └── page.tsx
+│   ├── context/
+│   │   └── AuthContext.tsx
+│   └── lib/
+│       └── firebase.ts
+├── .env.example
+├── .env.local
+├── .gitignore
+├── eslint.config.mjs
+├── LICENSE
+├── next-env.d.ts
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── README.md
+└── tsconfig.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚦 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Set up Firebase:**
+   Copy `.env.example` to `.env.local` and populate it with your Firebase project configuration credentials.
 
-## Learn More
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open [http://localhost:3000](http://localhost:3000) in your browser to start writing notes.
