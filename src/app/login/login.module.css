@@ -1,0 +1,466 @@
+/* Reset & Base Styles */
+
+
+/* Dark Theme */
+
+/* Header Styles */.header {
+    background: linear-gradient(135deg, #ffffff 0%, #fafae6 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(245, 245, 220, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#logo-img {
+    cursor: pointer;
+    height: 128px;
+    width: 192px;
+    background: none;
+    border: none;
+    vertical-align: middle;
+    object-fit: cover;
+    transition: transform 0.2s;
+}
+
+#logo-img:hover {
+    transform: scale(1.08);
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #8b4513, #daa520);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #8b4513;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: 2px solid #8b4513;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    transition: all 0.3s ease;
+    color: #8b4513;
+    font-weight: 500;
+}
+
+.theme-toggle:hover {
+    background: #8b4513;
+    color: #f5f5dc;
+    transform: scale(1.05);
+}
+
+/* Main Content */.mainContent {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Login Container */
+.login-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 15px 35px rgba(139, 69, 19, 0.1);
+    border: 1px solid rgba(245, 245, 220, 0.3);
+    width: 100%;
+    max-width: 450px;
+    transition: all 0.3s ease;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-header p {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #8b4513;
+    margin-bottom: 0.5rem;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #8b4513;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid rgba(139, 69, 19, 0.2);
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #8b4513;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-signin {
+    flex: 1;
+    background: linear-gradient(135deg, #8b4513 0%, #daa520 100%);
+    color: #f5f5dc;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+}
+
+.btn-signin:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+}
+
+.btn-signin:active {
+    transform: translateY(0);
+}
+
+.btn-signup {
+    flex: 1;
+    background: transparent;
+    color: #8b4513;
+    border: 2px solid #8b4513;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-signup:hover {
+    background: #8b4513;
+    color: #f5f5dc;
+    transform: translateY(-2px);
+}
+
+/* Footer Styles */.footer {
+    margin-top: auto;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(245, 245, 220, 0.3);
+    padding: 1.5rem 0;
+}
+
+.footer-bottom-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-bottom-content p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: #666;
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-links a:hover {
+    color: #8b4513;
+    background: rgba(139, 69, 19, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-content {
+        padding: 0.5rem 1rem;
+    }
+
+    #logo-img {
+        height: 80px;
+        width: 120px;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 1.2rem;
+    }
+
+    .theme-toggle {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }.mainContent {
+        padding: 1rem;
+    }
+
+    .login-container {
+        padding: 2rem 1.5rem;
+        border-radius: 15px;
+    }
+
+    .login-header p {
+        font-size: 1.2rem;
+    }
+
+    .form-group input {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.95rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .btn-signin,
+    .btn-signup {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+    }
+
+    .footer-bottom-content {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 1rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content {
+        padding: 0.5rem 0.8rem;
+    }
+
+    #logo-img {
+        height: 60px;
+        width: 90px;
+    }
+
+    .logo-text {
+        font-size: 1rem;
+    }
+
+    .logo-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 1rem;
+    }
+
+    .theme-toggle {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }.mainContent {
+        padding: 0.8rem;
+    }
+
+    .login-container {
+        padding: 1.5rem 1rem;
+        border-radius: 12px;
+    }
+
+    .login-header p {
+        font-size: 1.1rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .form-group input {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .form-actions {
+        margin-top: 1.5rem;
+    }
+
+    .btn-signin,
+    .btn-signup {
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .footer-bottom {
+        padding: 1rem 0;
+    }
+
+    .footer-bottom-content p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .header-content {
+        padding: 0.3rem 0.5rem;
+    }
+
+    #logo-img {
+        height: 50px;
+        width: 75px;
+    }
+
+    .logo-text {
+        font-size: 0.9rem;
+    }
+
+    .logo-icon {
+        width: 24px;
+        height: 24px;
+        font-size: 0.9rem;
+    }
+
+    .theme-toggle {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.75rem;
+    }.mainContent {
+        padding: 0.5rem;
+    }
+
+    .login-container {
+        padding: 1.2rem 0.8rem;
+        border-radius: 10px;
+    }
+
+    .login-header p {
+        font-size: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .form-group label {
+        font-size: 0.85rem;
+    }
+
+    .form-group input {
+        padding: 0.5rem 0.7rem;
+        font-size: 0.85rem;
+    }
+
+    .btn-signin,
+    .btn-signup {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .footer-bottom-content p {
+        font-size: 0.75rem;
+    }
+}
+
+/* Utility Classes */
+.poppins-light {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Touch-friendly improvements for mobile */
+@media (max-width: 768px) {
+    .theme-toggle,
+    .btn-signin,
+    .btn-signup {
+        min-height: 44px; /* iOS accessibility guideline */
+        touch-action: manipulation;
+    }
+
+    .form-group input {
+        min-height: 44px;
+    }
+
+    .social-links a {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .login-container {
+        backdrop-filter: blur(20px);
+    }
+}

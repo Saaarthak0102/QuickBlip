@@ -1,94 +1,36 @@
-# QuickBlip 
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-A modern, Firebase-powered note-taking app designed for speed, simplicity and security.
+## Getting Started
 
----
+First, run the development server:
 
-## ✨ Features
-
-- 🔐 **Secure Authentication** - Sign up and sign in with email/password
-- ✍️ **Rich Text Editor** - WYSIWYG-style editing with formatting options
-- 📊 **Smart Dashboard** - View, organize and manage all your notes in one place
-- ☁️ **Cloud Sync** - Real-time synchronization with Firebase Firestore
-- 📱 **Responsive Design** - Works perfectly on desktop and mobile
-- ⚡ **Lightning Fast** - Optimized for speed and performance
-- 🎨 **Clean Interface** - Distraction-free writing experience
-
----
-## 🏗️ Architecture
-
-
-```
-Frontend: Vanilla JavaScript, HTML5, CSS3
-Backend: Firebase Authentication & Firestore
-Security: Custom Firestore rules
-Deployment: Firebase Hosting ready
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-### Project Structure
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```
-QuickBlip/
-├── 🏠 Core Pages
-│   ├── index.html              # Landing page
-│   ├── dashboard.html          # Notes dashboard
-│   └── editor.html             # Note editor
-│
-├── 🔐 Authentication
-│   ├── login.html              # Login interface
-│   ├── signup.html             # Registration interface
-│   ├── signin.js               # Login logic
-│   └── register.js             # Registration logic
-│
-├── 📊 Dashboard Module
-│   ├── dashboard.css           # Dashboard styling
-│   ├── dashboard-ui.js         # UI interactions
-│   └── dashboard-db.js         # Database operations
-│
-├── ✍️ Editor Module
-│   ├── editor.css              # Editor styling
-│   ├── editor-ui.js            # Editor interface
-│   └── editor-db.js            # Note persistence
-│
-├── 🔧 Configuration
-│   ├── firebase-config.js      # Firebase setup
-│   ├── firestore.rules         # Security rules
-│   └── styles.css              # Global styles
-│
-└── 🎨 Assets
-    ├── logo-dark.png           # Dark theme logo
-    └── logo1.png               # Primary logo
-```
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
----
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## 🔒 Security & Privacy
+## Learn More
 
-QuickBlip implements robust security measures:
+To learn more about Next.js, take a look at the following resources:
 
-### Firestore Security Rules
-```javascript
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /notes/{noteId} {
-      allow read, write: if request.auth != null && 
-                          request.auth.uid == resource.data.userId;
-    }
-  }
-}
-```
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-**What this means:**
-- Only authenticated users can access notes
-- Users can only see and edit their own notes
-- All data is encrypted in transit and at rest
-  
----
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## 👨‍💻 Author
+## Deploy on Vercel
 
-**Saarthak Sabharwal**  
-GitHub: [Saaarthak0102](https://github.com/Saaarthak0102)
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
----
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
